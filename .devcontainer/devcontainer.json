@@ -38,7 +38,7 @@
     "codespaces": {
       "openFiles": ["README.md"]
     }
-  },
+  }
   // "initializeCommand": ["bash", ".devcontainer/initialize-command.sh"],
   // "postCreateCommand": ["bash", ".devcontainer/post-create-command.sh"]
 }
