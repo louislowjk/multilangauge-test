@@ -30,7 +30,7 @@ You'll need a version of node >= 14 which can be downloaded from the [Node.js we
 
 ## PayPal Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/louislowjk/multi-language?devcontainer_path=.devcontainer)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/louislowjk/multilanguage)
 
 
 ### Learn more 
