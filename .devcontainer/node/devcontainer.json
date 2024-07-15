@@ -1,0 +1,48 @@
+{
+  "name": "Node",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "Node",
+      "onAutoForward": "openBrowserOnce"
+    }
+  },
+  "secrets": {
+    "PAYPAL_CLIENT_ID": {
+      "description": "Sandbox client ID of the application.",
+      "documentationUrl": "https://developer.paypal.com/dashboard/applications/sandbox"
+    },
+    "PAYPAL_CLIENT_SECRET": {
+      "description": "Sandbox secret of the application.",
+      "documentationUrl": "https://developer.paypal.com/dashboard/applications/sandbox"
+    }
+  },
+  "containerEnv": {
+    "BASE_URL": "https://api-m.sandbox.paypal.com"
+  },
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "../.."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vsls-contrib.codetour",
+        "PayPal.vscode-paypal",
+        "ms-python.python"
+      ]
+    },
+    "settings": {
+      "git.openRepositoryInParentFolders": "always"
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create-command.sh",
+  "postAttachCommand": "bash .devcontainer/post-attach-command.sh",
+  "remoteEnv": {
+    "SELECTED_LANG": "node"
+  }
+}
