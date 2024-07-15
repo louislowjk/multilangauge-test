@@ -1,0 +1,25 @@
+{
+  "name": "Multi-language Workspace",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "LANG": "${localEnv:SELECTED_LANG}"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-dotnettools.csharp",
+        "vscjava.vscode-java-pack",
+        "dbaeumer.vscode-eslint"
+      ]
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+  "initializeCommand": ["bash", ".devcontainer/initialize-command.sh"],
+  "postCreateCommand": ["bash", ".devcontainer/post-create-command.sh"]
+}
