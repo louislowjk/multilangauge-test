@@ -5,8 +5,8 @@
   "portsAttributes": {
     "8888": {
       "label": "Preview of Fastlane Flow",
-      "onAutoForward": "openBrowser"
-    }
+      "onAutoForward": "openBrowserOnce"
+    },
   },
   "secrets": {
     "PAYPAL_CLIENT_ID": {
@@ -24,13 +24,12 @@
   "build": {
     "dockerfile": "../Dockerfile",
     "context": "..",
-    "args": {
-      "LANG": "${localEnv:SELECTED_LANG}"
-    }
+    
   },
   "customizations": {
     "vscode": {
-      "extensions": ["vsls-contrib.codetour", "PayPal.vscode-paypal"]
+      "extensions": ["vsls-contrib.codetour", "PayPal.vscode-paypal", "ms-python.python"
+    ]
     },
     "settings": {
       "git.openRepositoryInParentFolders": "always"
@@ -39,5 +38,7 @@
       "openFiles": ["README.md"]
     }
   },
-  "postCreateCommand": ["bash", ".devcontainer/post-create-command.sh"]
+  "postCreateCommand": "bash .devcontainer/post-create-command.sh",
+  "postAttachCommand": "bash .devcontainer/post-attach-command.sh"
+
 }
