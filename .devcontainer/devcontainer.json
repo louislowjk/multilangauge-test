@@ -22,7 +22,7 @@
     "BASE_URL": "https://api-m.sandbox.paypal.com"
   },
   "build": {
-    "dockerfile": "Dockerfile",
+    "dockerfile": "../Dockerfile",
     "context": "..",
     "args": {
       "LANG": "${localEnv:SELECTED_LANG}"
@@ -39,6 +39,6 @@
       "openFiles": ["README.md"]
     }
   },
-  "initializeCommand": ["bash", ".devcontainer/initialize-command.sh"],
-  "postCreateCommand": ["bash", ".devcontainer/post-create-command.sh"]
+  // "initializeCommand": ["bash", ".devcontainer/initialize-command.sh"],
+  // "postCreateCommand": ["bash", ".devcontainer/post-create-command.sh"]
 }
