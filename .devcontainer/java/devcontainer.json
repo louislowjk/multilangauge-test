@@ -1,9 +1,10 @@
 {
   "name": "Java",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
-  "forwardPorts": [8888],
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/paypal/server/java",
+  "forwardPorts": [8080],
   "portsAttributes": {
-    "8888": {
+    "8080": {
       "label": "Java",
       "onAutoForward": "openBrowserOnce"
     }
@@ -21,16 +22,12 @@
   "containerEnv": {
     "BASE_URL": "https://api-m.sandbox.paypal.com"
   },
-  "build": {
-    "dockerfile": "../Dockerfile",
-    "context": "../.."
-  },
   "customizations": {
     "vscode": {
       "extensions": [
         "vsls-contrib.codetour",
         "PayPal.vscode-paypal",
-        "ms-python.python"
+        "vscjava.vscode-java-pack"
       ]
     },
     "settings": {
@@ -40,9 +37,12 @@
       "openFiles": ["README.md"]
     }
   },
-  "postCreateCommand": "bash .devcontainer/post-create-command.sh",
-  "postAttachCommand": "bash .devcontainer/post-attach-command.sh",
-  "remoteEnv": {
-    "SELECTED_LANG": "java"
-  }
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": "true"
+    }
+  },
+  "postCreateCommand": "mvn clean install",
+  "postAttachCommand": "mvn spring-boot:run"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Python",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/paypal/server/python",
   "forwardPorts": [8888],
   "portsAttributes": {
     "8888": {
@@ -21,10 +22,6 @@
   "containerEnv": {
     "BASE_URL": "https://api-m.sandbox.paypal.com"
   },
-  "build": {
-    "dockerfile": "../Dockerfile",
-    "context": "../.."
-  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -34,15 +31,13 @@
       ]
     },
     "settings": {
-      "git.openRepositoryInParentFolders": "always"
+      "git.openRepositoryInParentFolders": "always",
+      "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
     },
     "codespaces": {
       "openFiles": ["README.md"]
     }
   },
-  "postCreateCommand": "bash .devcontainer/post-create-command.sh",
-  "postAttachCommand": "bash .devcontainer/post-attach-command.sh",
-  "remoteEnv": {
-    "SELECTED_LANG": "python"
-  }
+  "postCreateCommand": "python -m venv .venv && . .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt",
+  "postAttachCommand": ". .venv/bin/activate && python app.py"
 }
