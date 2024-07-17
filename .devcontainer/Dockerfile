@@ -35,10 +35,10 @@ RUN apt-get update \
     && ln -s /usr/bin/python3 /usr/bin/python \
     && echo "Python installed."
 
-# Install Node.js
-# RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
-#     && apt-get install -y nodejs \
-#     && echo "Node.js installed."
+Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs \
+    && echo "Node.js installed."
 
 # Clean up
 RUN apt-get clean \
